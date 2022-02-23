@@ -27,7 +27,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public."PetOwners" (
     id integer NOT NULL,
     "ownerName" text,
-    email character(1) NOT NULL,
+    email text,
     pets integer NOT NULL
 );
 
@@ -94,6 +94,9 @@ ALTER TABLE public."__EFMigrationsHistory" OWNER TO desireequade;
 --
 
 COPY public."PetOwners" (id, "ownerName", email, pets) FROM stdin;
+1	Desiree	dez@gmail.com	1
+2	Leah	leah@yahoo.com	1
+3	Subash	subash@hotmail.com	3
 \.
 
 
@@ -110,10 +113,8 @@ COPY public."Pets" (id, name, color, "checkedIn", "petByOwnerId") FROM stdin;
 --
 
 COPY public."__EFMigrationsHistory" ("MigrationId", "ProductVersion") FROM stdin;
-20220223214057_CreatePetOwnersTable	5.0.8
-20220223214137_CreatePetsTable	5.0.8
-20220223220602_CreatePetsTable	5.0.8
-20220223220618_CreatePetOwnersTable	5.0.8
+20220223224624_CreatePetOwnersTable	5.0.8
+20220223224716_CreatePetsTable	5.0.8
 \.
 
 
@@ -121,7 +122,7 @@ COPY public."__EFMigrationsHistory" ("MigrationId", "ProductVersion") FROM stdin
 -- Name: PetOwners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: desireequade
 --
 
-SELECT pg_catalog.setval('public."PetOwners_id_seq"', 1, false);
+SELECT pg_catalog.setval('public."PetOwners_id_seq"', 3, true);
 
 
 --
