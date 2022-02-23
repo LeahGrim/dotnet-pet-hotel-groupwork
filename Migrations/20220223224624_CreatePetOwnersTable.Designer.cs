@@ -10,7 +10,7 @@ using pet_hotel.Models;
 namespace dotnet_bakery.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220223220618_CreatePetOwnersTable")]
+    [Migration("20220223224624_CreatePetOwnersTable")]
     partial class CreatePetOwnersTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,8 +52,8 @@ namespace dotnet_bakery.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<char>("email")
-                        .HasColumnType("character(1)");
+                    b.Property<string>("email")
+                        .HasColumnType("text");
 
                     b.Property<string>("ownerName")
                         .HasColumnType("text");

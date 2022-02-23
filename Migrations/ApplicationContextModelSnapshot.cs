@@ -50,8 +50,8 @@ namespace dotnet_bakery.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<char>("email")
-                        .HasColumnType("character(1)");
+                    b.Property<string>("email")
+                        .HasColumnType("text");
 
                     b.Property<string>("ownerName")
                         .HasColumnType("text");

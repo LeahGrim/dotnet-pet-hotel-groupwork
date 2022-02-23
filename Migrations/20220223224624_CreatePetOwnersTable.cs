@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace dotnet_bakery.Migrations
 {
-    public partial class CreatePetsTable : Migration
+    public partial class CreatePetOwnersTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace dotnet_bakery.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ownerName = table.Column<string>(type: "text", nullable: true),
-                    email = table.Column<char>(type: "character(1)", nullable: false),
+                    email = table.Column<string>(type: "text", nullable: true),
                     pets = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
