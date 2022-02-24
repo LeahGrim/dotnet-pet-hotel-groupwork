@@ -22,7 +22,6 @@ namespace pet_hotel.Models
 
         public string checkedIn { get; set; }
 
-
         [ForeignKey("id")]
 
         public int petOwnerId {get; set;}
