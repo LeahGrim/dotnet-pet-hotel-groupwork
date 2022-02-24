@@ -14,9 +14,9 @@ namespace dotnet_bakery.Migrations
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ownerName = table.Column<string>(type: "text", nullable: true),
-                    email = table.Column<string>(type: "text", nullable: true),
-                    pets = table.Column<int>(type: "integer", nullable: false)
+                    name = table.Column<string>(type: "text", nullable: true),
+                    emailAddress = table.Column<string>(type: "text", nullable: true),
+                    petCount = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
