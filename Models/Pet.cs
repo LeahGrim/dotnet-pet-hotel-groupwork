@@ -20,6 +20,9 @@ namespace pet_hotel.Models
 
         public PetColorType color { get; set; }
 
+        public string checkedIn { get; set; }
+
+
         [ForeignKey("id")]
 
         public int petOwnerId {get; set;}
