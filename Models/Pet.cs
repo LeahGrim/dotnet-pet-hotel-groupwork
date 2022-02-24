@@ -13,14 +13,16 @@ namespace pet_hotel.Models
         public int id { get; set; }
 
         public string name { get; set; }
+
         [JsonConverter(typeof(JsonStringEnumConverter))]
 
-        public PetBreedType breed { get; set; }
+        public string breed { get; set; }
+
         [JsonConverter(typeof(JsonStringEnumConverter))]
 
         public PetColorType color { get; set; }
 
-        public string checkedIn { get; set; }
+        public string checkedInAt { get; set; }
 
         [ForeignKey("id")]
 

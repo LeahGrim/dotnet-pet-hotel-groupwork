@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
+#nullable disable
 
 namespace dotnet_bakery.Migrations
 {
-    public partial class CreatePetOwnersTable : Migration
+    public partial class CreatePetsTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,23 +31,35 @@ namespace dotnet_bakery.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: true),
-                    color = table.Column<string>(type: "text", nullable: true),
-                    checkedIn = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    petByOwnerId = table.Column<int>(type: "integer", nullable: false)
+                    breed = table.Column<string>(type: "text", nullable: true),
+                    color = table.Column<int>(type: "integer", nullable: false),
+                    checkedInAt = table.Column<string>(type: "text", nullable: true),
+                    petOwnerId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pets", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Pets_PetOwners_petOwnerId",
+                        column: x => x.petOwnerId,
+                        principalTable: "PetOwners",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pets_petOwnerId",
+                table: "Pets",
+                column: "petOwnerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PetOwners");
+                name: "Pets");
 
             migrationBuilder.DropTable(
-                name: "Pets");
+                name: "PetOwners");
         }
     }
 }
