@@ -26,19 +26,15 @@ namespace pet_hotel.Controllers
             return new List<Pet>();
         }
 
-        // [HttpGet]
-        // [Route("test")]
-        // public IEnumerable<Pet> GetPets() {
-        //     PetOwner blaine = new PetOwner{
-        //         name = "Blaine"
-        //     };
+          [HttpGet ("{id}")]
+          public ActionResult<Pet> GetById(int id)
+          {
+             Pet pet = _context.Pets
+             .SingleOrDefault(pet => pet.id == id);
 
-        //     Pet newPet1 = new Pet {
-        //         name = "Big Dog",
-        //         petOwner = blaine,
-        //         color = PetColorType.Black,
-        //         breed = PetBreedType.Poodle,
-        //     };
+            return pet;
+        
+             }
 
         //     Pet newPet2 = new Pet {
         //         name = "Little Dog",
