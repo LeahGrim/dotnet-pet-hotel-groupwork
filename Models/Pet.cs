@@ -15,7 +15,7 @@ namespace pet_hotel.Models
 
         public string color { get; set; }
 
-        public DateTime checkedIn { get; set; }
+        public string checkedIn { get; set; }
 
         [ForeignKey("PetOwners")]
         public int petByOwnerId { get; set; }
