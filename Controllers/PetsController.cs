@@ -38,12 +38,7 @@ namespace pet_hotel.Controllers
         //         name = "Blaine"
         //     };
 
-        //     Pet newPet1 = new Pet {
-        //         name = "Big Dog",
-        //         petOwner = blaine,
-        //         color = PetColorType.Black,
-        //         breed = PetBreedType.Poodle,
-        //     };
+          
 
         //     Pet newPet2 = new Pet {
         //         name = "Little Dog",
